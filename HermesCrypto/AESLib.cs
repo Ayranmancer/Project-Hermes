@@ -7,9 +7,9 @@ using System;
 using System.IO;
 using System.Security.Cryptography;
 
-namespace Login_SignUp
+namespace HermesCrypto
 {
-    class AesExample
+    class AESLib
     {
         private static byte[] AESkey =
             {
@@ -18,8 +18,6 @@ namespace Login_SignUp
             };
 
         /*
-        public static void Main()
-        {
             string original = "Here is some data to encrypt!";
 
             // Create a new instance of the Aes
@@ -38,7 +36,6 @@ namespace Login_SignUp
                 Console.WriteLine("Original:   {0}", original);
                 Console.WriteLine("Round Trip: {0}", roundtrip);
             }
-        }
         */
         static byte[] EncryptStringToBytes_Aes(string plainText, byte[] IV)
         {
