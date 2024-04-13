@@ -6,16 +6,15 @@ using System.Threading.Tasks;
 
 namespace Login
 {
-    //LEVENT
     internal class Cryptology
     {
 
         public static string Encryption(String text, int key)
         {
-            char[] x = text.ToCharArray();       
+            char[] x = text.ToCharArray();
             string encryptedText = null;
 
-            foreach (char item in x) 
+            foreach (char item in x)
             {
                 encryptedText += Convert.ToChar(item + key);
 
