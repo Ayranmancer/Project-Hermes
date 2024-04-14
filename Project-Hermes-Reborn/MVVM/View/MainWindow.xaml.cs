@@ -16,9 +16,12 @@ namespace Project_Hermes_Reborn
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        string username;
+        public MainWindow(string tempUsername)
         {
+            username = tempUsername;
             InitializeComponent();
+            UsernameTextBox.Text = username;
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
