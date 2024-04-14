@@ -8,6 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Diagnostics;
+using Project_Hermes_Reborn;
+using ChatServer;
+using System.Windows.Forms;
+
 
 
 
@@ -15,6 +20,7 @@ namespace Login
 {
     public partial class Form1 : Form
     {
+       
 
         public static SqlConnection connection = new SqlConnection("Data Source=DESKTOP-JEI1A7L\\SQLEXPRESS; Initial Catalog=Project-Hermes-Reborn; Integrated Security=TRUE");
         // Initial Catalog isimleri farkli !!!
@@ -116,6 +122,7 @@ namespace Login
             string username = textBox1.Text;
             string pass = textBox2.Text;
             bool isThere = false;
+            
 
             connection.Open();
             SqlCommand command = new SqlCommand("Select *from Hermes_Table_1", connection);
@@ -123,7 +130,7 @@ namespace Login
 
             while (reader.Read())
             {
-                if (username == Cryptology.Decryption (reader["username"].ToString().TrimEnd(),5) && pass == Cryptology.Decryption (reader["pass"].ToString().TrimEnd(),5))
+                if (username == Cryptology.Decryption(reader["username"].ToString().TrimEnd(), 5) && pass == Cryptology.Decryption(reader["pass"].ToString().TrimEnd(), 5))
                 // Cryptology.Decryption keyi 5 
                 {
                     isThere = true;
@@ -148,8 +155,28 @@ namespace Login
                 MessageBox.Show("Login Failed!!", "Program");
             }
 
+            
+
+            
+            if(isThere)
+            {
+              
+                this.Hide();
+                MainWindow mainwindow = new MainWindow(username);
+                mainwindow.Show();
+
+
+            }
+         
+
+
+
 
         }
+
+
+
+
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -158,5 +185,10 @@ namespace Login
             signUp.Show();
             // giris ekranindan kayit ekranina gecme 
         }
+
+      
     }
+
+
 }
+ 

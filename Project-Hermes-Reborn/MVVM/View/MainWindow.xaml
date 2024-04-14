@@ -20,9 +20,9 @@
         </Grid.ColumnDefinitions>
 
         <DockPanel>
-            <TextBox Height="25"
+            <TextBox x:Name="UsernameTextBox" Height="25"
                      DockPanel.Dock="Top" 
-                     Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"/>
+                     Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" TextChanged="TextBox_TextChanged_1"/>
             <Button Height="25"
                     DockPanel.Dock="Top" 
                     Content="Connect" 
@@ -38,7 +38,7 @@
 
         <StackPanel Grid.Column="1">
             <ListView Height="380" 
-                      ItemsSource="{Binding Messages}"/>
+                      ItemsSource="{Binding Messages}" SelectionChanged="ListView_SelectionChanged"/>
             <StackPanel Orientation="Horizontal">
                 <TextBox Height="55"
                          Width="545"

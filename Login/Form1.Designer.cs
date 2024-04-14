@@ -42,9 +42,10 @@
             button1.BackgroundImage = (Image)resources.GetObject("button1.BackgroundImage");
             button1.BackgroundImageLayout = ImageLayout.Stretch;
             button1.FlatStyle = FlatStyle.Popup;
-            button1.Location = new Point(250, 12);
+            button1.Location = new Point(286, 16);
+            button1.Margin = new Padding(3, 4, 3, 4);
             button1.Name = "button1";
-            button1.Size = new Size(34, 34);
+            button1.Size = new Size(39, 45);
             button1.TabIndex = 0;
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
@@ -55,9 +56,10 @@
             textBox1.BorderStyle = BorderStyle.FixedSingle;
             textBox1.Font = new Font("Segoe UI", 11F);
             textBox1.ForeColor = Color.Silver;
-            textBox1.Location = new Point(77, 332);
+            textBox1.Location = new Point(88, 443);
+            textBox1.Margin = new Padding(3, 4, 3, 4);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(143, 27);
+            textBox1.Size = new Size(163, 32);
             textBox1.TabIndex = 1;
             textBox1.Text = "Username";
             textBox1.TextChanged += textBox1_TextChanged;
@@ -70,9 +72,10 @@
             textBox2.BorderStyle = BorderStyle.FixedSingle;
             textBox2.Font = new Font("Segoe UI", 11F);
             textBox2.ForeColor = Color.Silver;
-            textBox2.Location = new Point(77, 378);
+            textBox2.Location = new Point(88, 504);
+            textBox2.Margin = new Padding(3, 4, 3, 4);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(143, 27);
+            textBox2.Size = new Size(163, 32);
             textBox2.TabIndex = 2;
             textBox2.Text = "Password";
             textBox2.TextChanged += textBox2_TextChanged;
@@ -84,9 +87,10 @@
             button2.BackColor = Color.FromArgb(0, 221, 52);
             button2.FlatStyle = FlatStyle.Popup;
             button2.Font = new Font("Segoe UI", 9F);
-            button2.Location = new Point(236, 415);
+            button2.Location = new Point(270, 553);
+            button2.Margin = new Padding(3, 4, 3, 4);
             button2.Name = "button2";
-            button2.Size = new Size(48, 33);
+            button2.Size = new Size(55, 44);
             button2.TabIndex = 3;
             button2.Text = "Login";
             button2.UseVisualStyleBackColor = false;
@@ -98,9 +102,9 @@
             linkLabel1.AutoSize = true;
             linkLabel1.BackColor = Color.Transparent;
             linkLabel1.LinkColor = Color.FromArgb(0, 221, 52);
-            linkLabel1.Location = new Point(12, 424);
+            linkLabel1.Location = new Point(14, 565);
             linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new Size(48, 15);
+            linkLabel1.Size = new Size(61, 20);
             linkLabel1.TabIndex = 4;
             linkLabel1.TabStop = true;
             linkLabel1.Text = "Sign Up";
@@ -108,11 +112,11 @@
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(296, 460);
+            ClientSize = new Size(338, 613);
             Controls.Add(linkLabel1);
             Controls.Add(button2);
             Controls.Add(textBox2);
@@ -120,6 +124,7 @@
             Controls.Add(button1);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
