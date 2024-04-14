@@ -9,43 +9,25 @@ using System.Security.Cryptography;
 
 namespace HermesCrypto
 {
-    class AESLib
+    public static class AESLib
     {
         private static byte[] AESkey =
             {
                 0x55, 0x66, 0x77, 0x32, 0x45, 0x21, 0x84, 0x74,
                 0x09, 0x51, 0x37, 0x97, 0x64, 0x18, 0x14, 0x12
             };
-
-        /*
-            string original = "Here is some data to encrypt!";
-
-            // Create a new instance of the Aes
-            // class.  This generates a new key and initialization
-            // vector (IV).
-            using (Aes myAes = Aes.Create())
+        private static byte[] AESiv =
             {
+                0x55, 0x66, 0x77, 0x32, 0x45, 0x21, 0x84, 0x74,
+                0x09, 0x51, 0x37, 0x97, 0x64, 0x18, 0x14, 0x12
+            };
 
-                // Encrypt the string to an array of bytes.
-                byte[] encrypted = EncryptStringToBytes_Aes(original, myAes.Key, myAes.IV);
-
-                // Decrypt the bytes to a string.
-                string roundtrip = DecryptStringFromBytes_Aes(encrypted, myAes.Key, myAes.IV);
-
-                //Display the original data and the decrypted data.
-                Console.WriteLine("Original:   {0}", original);
-                Console.WriteLine("Round Trip: {0}", roundtrip);
-            }
-        */
-        static byte[] EncryptStringToBytes_Aes(string plainText, byte[] IV)
+        public static byte[] EncryptStringToBytes_Aes(string plainText)
         {
             // Check arguments.
             if (plainText == null || plainText.Length <= 0)
                 throw new ArgumentNullException("plainText");
-            if (AESkey == null || AESkey.Length <= 0)
-                throw new ArgumentNullException("Key");
-            if (IV == null || IV.Length <= 0)
-                throw new ArgumentNullException("IV");
+
             byte[] encrypted;
 
             // Create an Aes object
@@ -53,7 +35,9 @@ namespace HermesCrypto
             using (Aes aesAlg = Aes.Create())
             {
                 aesAlg.Key = AESkey;
-                aesAlg.IV = IV;
+                aesAlg.IV = AESiv;
+                aesAlg.Mode = CipherMode.CBC;
+                aesAlg.Padding = PaddingMode.PKCS7;
 
                 // Create an encryptor to perform the stream transform.
                 ICryptoTransform encryptor = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV);
@@ -76,16 +60,11 @@ namespace HermesCrypto
             // Return the encrypted bytes from the memory stream.
             return encrypted;
         }
-
-        static string DecryptStringFromBytes_Aes(byte[] cipherText, byte[] IV)
+        public static string DecryptStringFromBytes_Aes(byte[] cipherText)
         {
             // Check arguments.
             if (cipherText == null || cipherText.Length <= 0)
                 throw new ArgumentNullException("cipherText");
-            if (AESkey == null || AESkey.Length <= 0)
-                throw new ArgumentNullException("Key");
-            if (IV == null || IV.Length <= 0)
-                throw new ArgumentNullException("IV");
 
             // Declare the string used to hold
             // the decrypted text.
@@ -96,7 +75,9 @@ namespace HermesCrypto
             using (Aes aesAlg = Aes.Create())
             {
                 aesAlg.Key = AESkey;
-                aesAlg.IV = IV;
+                aesAlg.IV = AESiv;
+                aesAlg.Mode = CipherMode.CBC;
+                aesAlg.Padding = PaddingMode.PKCS7;
 
                 // Create a decryptor to perform the stream transform.
                 ICryptoTransform decryptor = aesAlg.CreateDecryptor(aesAlg.Key, aesAlg.IV);
@@ -108,7 +89,6 @@ namespace HermesCrypto
                     {
                         using (StreamReader srDecrypt = new StreamReader(csDecrypt))
                         {
-
                             // Read the decrypted bytes from the decrypting stream
                             // and place them in a string.
                             plaintext = srDecrypt.ReadToEnd();
@@ -119,5 +99,7 @@ namespace HermesCrypto
 
             return plaintext;
         }
+        
     }
 }
+
