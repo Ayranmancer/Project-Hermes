@@ -5,6 +5,8 @@ using System.Linq;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.Cryptography;
+using HermesCrypto;
 
 namespace Project_Hermes_Reborn.Net.IO
 {
@@ -23,7 +25,12 @@ namespace Project_Hermes_Reborn.Net.IO
             msgBuffer = new byte[length];
             _ns.Read(msgBuffer, 0, length);
 
-            var msg = Encoding.ASCII.GetString(msgBuffer);
+            //AES decryption
+            string msg = AESLib.DecryptStringFromBytes_Aes(msgBuffer);
+
+            //NON-DECRYPT VERSION
+            //var msg = Encoding.ASCII.GetString(msgBuffer);
+
             return msg;
         }
     }

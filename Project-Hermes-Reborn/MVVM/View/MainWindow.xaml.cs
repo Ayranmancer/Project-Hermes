@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Project_Hermes_Reborn.MVVM.ViewModel;
 
 namespace Project_Hermes_Reborn
 {
@@ -16,9 +17,13 @@ namespace Project_Hermes_Reborn
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        string username;
+        public MainWindow(string tempUsername)
         {
+            username = tempUsername;
             InitializeComponent();
+            UsernameTextBox.Text = username;
+            MainViewModel mainViewModel = new MainViewModel();
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.Cryptography;
+using HermesCrypto;
 
 namespace ChatServer.Net.IO
 {
@@ -19,9 +21,16 @@ namespace ChatServer.Net.IO
         }
         public void WriteMessage(string msg)
         {
-            var msgLength = msg.Length;
-            _ms.Write(BitConverter.GetBytes(msgLength));
-            _ms.Write(Encoding.ASCII.GetBytes(msg));
+            //AES encryption
+            byte[] encryptedMsg = AESLib.EncryptStringToBytes_Aes(msg);
+
+            var encryptedMsgLength = encryptedMsg.Length;
+            _ms.Write(BitConverter.GetBytes(encryptedMsgLength));
+            _ms.Write(encryptedMsg);
+
+            //log CLEARTEXT and CIPHERTEXT
+            Console.WriteLine($"[Sent Original Text: {msg}]");
+            Console.WriteLine($"[Sent Ciphertext: {Encoding.ASCII.GetString(encryptedMsg)}]");
         }
 
         public byte[] GetPacketBytes()

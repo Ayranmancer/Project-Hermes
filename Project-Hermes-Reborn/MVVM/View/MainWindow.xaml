@@ -20,7 +20,7 @@
         </Grid.ColumnDefinitions>
 
         <DockPanel>
-            <TextBox Height="25"
+            <TextBox x:Name="UsernameTextBox" Height="25"
                      DockPanel.Dock="Top" 
                      Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"/>
             <Button Height="25"
