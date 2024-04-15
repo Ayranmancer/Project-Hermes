@@ -16,7 +16,7 @@ namespace Login
     public partial class Form1 : Form
     {
 
-        public static SqlConnection connection = new SqlConnection("Data Source=DESKTOP-JEI1A7L\\SQLEXPRESS; Initial Catalog=Project-Hermes-Reborn; Integrated Security=TRUE");
+        public static SqlConnection connection = new SqlConnection("Data Source=DESKTOP-NG0EKA2; Initial Catalog=hermes; Integrated Security=TRUE");
         // Initial Catalog isimleri farkli !!!
 
         public Form1()
