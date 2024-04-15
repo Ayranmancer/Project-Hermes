@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Properties\" />
+    <ProjectReference Include="..\HermesCrypto\HermesCrypto.csproj" />
   </ItemGroup>
 
 </Project>

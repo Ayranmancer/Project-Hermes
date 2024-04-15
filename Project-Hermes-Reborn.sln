@@ -4,10 +4,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatClient", "Project-Hermes-Reborn\ChatClient.csproj", "{CB3124F7-029B-4EB1-8D99-963D59568D58}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2B36FF71-3619-4FC0-ACF3-CE2F7F2B1108} = {2B36FF71-3619-4FC0-ACF3-CE2F7F2B1108}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatServer", "ChatServer\ChatServer.csproj", "{CC044E1E-EF28-4634-BAC6-3C2FE5B4DB12}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2B36FF71-3619-4FC0-ACF3-CE2F7F2B1108} = {2B36FF71-3619-4FC0-ACF3-CE2F7F2B1108}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Login_SignUp", "Login\Login_SignUp.csproj", "{B6A12920-A121-4566-8E11-1D4AF1DEE04B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HermesCrypto", "HermesCrypto\HermesCrypto.csproj", "{2B36FF71-3619-4FC0-ACF3-CE2F7F2B1108}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +35,10 @@ Global
 		{B6A12920-A121-4566-8E11-1D4AF1DEE04B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6A12920-A121-4566-8E11-1D4AF1DEE04B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B6A12920-A121-4566-8E11-1D4AF1DEE04B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B36FF71-3619-4FC0-ACF3-CE2F7F2B1108}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B36FF71-3619-4FC0-ACF3-CE2F7F2B1108}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B36FF71-3619-4FC0-ACF3-CE2F7F2B1108}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B36FF71-3619-4FC0-ACF3-CE2F7F2B1108}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
